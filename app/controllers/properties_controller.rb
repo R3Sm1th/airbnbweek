@@ -8,9 +8,14 @@ class PropertiesController < ApplicationController
     # @property_application = PropertyApplication.find(params[:property_application_id])
   end
 
+  def mylistings
+    @properties = Property.where(user: current_user)
+  end
+
   # GET /properties/1
   def show
     @review = Review.new
+    @booking = Booking.new
   end
 
   # GET /properties/new

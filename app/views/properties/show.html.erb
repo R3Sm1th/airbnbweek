@@ -12,14 +12,57 @@
     <div class="col-6">
       <h4> Hosted by <%= @property.user.first_name %> <%= @property.user.last_name %></h4>
       <p> Property Description </p>
+        <%= @property.description %>
       <p> Property Amenities </p>
+      <div>
+        <ul>
+          <% @property.amenities.each do |a| %>
+          <li><%= a %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
     <div class="col-6">
       <p> Property Booking </p>
+      <div class="container">
+        <p>£<%= @property.price %> per night</p>
+        <%= simple_form_for [@property, @booking] do |f| %>
+          <%= f.input :start, class: 'start-date' %>
+          <%= f.input :end, class: 'end-date' %>
+          <%= f.input :comment %>
+          <%= f.button :submit, class: 'btn btn-primary' %>
+        <% end %>
+        <p> You won't be charged yet </p>
+        <div>
+          <p>£<%= @property.price %> x <span id="date-diff">0</span></p>
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const startDateInput = document.querySelector('.start-date');
+              const endDateInput = document.querySelector('.end-date');
+              const dateDiffElement = document.getElementById('date-diff');
+
+              startDateInput.addEventListener('change', updateDateDiff);
+              endDateInput.addEventListener('change', updateDateDiff);
+
+              function updateDateDiff() {
+                const startDate = new Date(startDateInput.value);
+                const endDate = new Date(endDateInput.value);
+                const timeDiff = Math.abs(endDate - startDate);
+                const dateDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+                dateDiffElement.value = dateDiff;
+                } else {
+                  dateDiffElement.value = '0';
+                }
+            });
+          </script>
+        </div>
+      </div>
     </div>
   </div>
   <div class="col-12">
-    <h4> <i class="fas fa-star"></i> Reviews - <%= @property.reviews.count %> </h4>
+    <% avg = 0 %><% @property.reviews.each do |r| avg += r.rating end %>
+    <h4> <i class="fas fa-star"></i> Reviews - <%= @property.reviews.count %> - Average Score <%= (avg / @property.reviews.count).to_f %> </h4>
     <div class="list-group">
         <% @property.reviews.each do |review| %>
           <li class="list-group-item">

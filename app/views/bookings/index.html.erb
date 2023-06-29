@@ -1,1 +1,28 @@
-<p>test</p>
+<div class="container col-12 col-lg-8">
+  <h1>My Bookings</h1>
+  <div class=container>
+    <% @bookings.each do |booking| %>
+    <div class="card text-center">
+      <div class="card-header">
+        <%= booking.property.address %>
+      </div>
+      <div class="d-flex">
+        <div class="col-8">
+          <div class="card-body">
+            <p class="card-text">Start Date: <%= booking.start %></p>
+            <p class="card-text">End Date: <%= booking.end %></p>
+            <p class="card-text">Price: £<%= booking.total %></p>
+            <%= link_to "Listing Details", property_path(booking.property), class: "btn btn-primary"%>
+          </div>
+        </div>
+        <div class="col-4">
+          <%= cl_image_tag booking.property.photos[0].key, class:"w-100" %>
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        Booked on <%= booking.created_at %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  </div>

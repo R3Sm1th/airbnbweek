@@ -26,7 +26,7 @@ Property.destroy_all
 
 puts "creating properties"
 
-p1 = Property.new(name: "The Cottage", address: "32 Walabu Way, Sydney", postcode: "BN34HB", price: 125, rating: 4.5, user: mogul)
+p1 = Property.new(name: "The Cottage", address: "32 Walabu Way, Sydney", postcode: "BN34HB", price: 125, rating: 4.5, user: mogul, sleeps: 3, description: "a wonderful property in a sweet little town", amenities: ["Wifi", "Wifi", "Wifi", "Wifi", "Wifi"] )
 file = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1685692549/samples/landscapes/architecture-signs.jpg")
 p1.photos.attach(io: file, filename: "property1_img.jpg", content_type: "image/jpg")
 p1.save

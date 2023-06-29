@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
     resources :bookings, only: [:new, :create]
   end
+  get '/mylistings', to: 'properties#mylistings'
   # Defines the root path route ("/")
   # root "articles#index"
   resources :bookings, only: [:index, :show, :destroy]
