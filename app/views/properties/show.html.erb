@@ -1,2 +1,52 @@
-<p> test </p>
-<h1><%= @property.name %></h1>
+<div class="container col-12 col-lg-8">
+  <div class="showheader">
+    <h1><%= @property.name %></h1>
+  </div>
+  <div class="showimages">
+    <div class="main">
+    </div>
+    <div class="otherimages">
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="col-6">
+      <h4> Hosted by <%= @property.user.first_name %> <%= @property.user.last_name %></h4>
+      <p> Property Description </p>
+      <p> Property Amenities </p>
+    </div>
+    <div class="col-6">
+      <p> Property Booking </p>
+    </div>
+  </div>
+  <div class="col-12">
+    <h4> <i class="fas fa-star"></i> Reviews - <%= @property.reviews.count %> </h4>
+    <div class="list-group">
+        <% @property.reviews.each do |review| %>
+          <li class="list-group-item">
+            <p><%= name = review.name.nil? ? "Anonomys User" : review.name %> </p>
+            <p><%= review.created_at.strftime("%d/%m/%Y") %> </p>
+            <small>
+              <% count = 0 %>
+              <% 5.times do %>
+                <% if review.rating > count %>
+                  <i class="fas fa-star"></i>
+                <% else %>
+                  <i class="far fa-star"></i>
+                <% end %>
+                <% count += 1 %>
+              <% end %>
+            </small>
+            <p><%= review.content %></p>
+          </li>
+        <% end %>
+    </div>
+    <div>
+      <%= simple_form_for [@property, @review] do |f| %>
+        <%= f.input :rating, collection: 0..5 %>
+        <%= f.input :content %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+      <%#= link_to "See all restaurants", restaurants_path %>
+    </div>
+  </div>
+</div>

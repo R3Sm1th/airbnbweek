@@ -31,6 +31,9 @@ file = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1685692549/s
 p1.photos.attach(io: file, filename: "property1_img.jpg", content_type: "image/jpg")
 p1.save
 
+r1 = Review.new(content: "This is lovely", rating: 5, property: p1)
+r1.save
+
 p2 = Property.new(name: "The Lesser", address: "1, Mount View, Peacehaven", postcode: "BN34HB", price: 125, rating: 4.5, user: mogul)
 file = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1685692549/samples/landscapes/architecture-signs.jpg")
 p2.photos.attach(io: file, filename: "property1_img.jpg", content_type: "image/jpg")
