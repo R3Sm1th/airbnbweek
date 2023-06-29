@@ -10,6 +10,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1
   def show
+    @review = Review.new
   end
 
   # GET /properties/new
