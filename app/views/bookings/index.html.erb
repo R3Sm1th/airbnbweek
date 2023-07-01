@@ -12,7 +12,11 @@
             <p class="card-text">Start Date: <%= booking.start %></p>
             <p class="card-text">End Date: <%= booking.end %></p>
             <p class="card-text">Price: £<%= booking.total %></p>
-            <%= link_to "Listing Details", property_path(booking.property), class: "btn btn-primary"%>
+            <div class="">
+              <%= link_to "Listing Details", property_path(booking.property), class: "btn btn-primary"%>
+              <%= link_to "Confirmation", property_path(booking.property), class: "btn btn-primary"%>
+              <%= link_to "Download", property_path(booking.property), class: "btn btn-primary"%>
+            </div>
           </div>
         </div>
         <div class="col-4">

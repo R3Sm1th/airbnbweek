@@ -10,7 +10,10 @@
   </div>
   <div class="d-flex">
     <div class="col-6">
-      <h4> Hosted by <%= @property.user.first_name %> <%= @property.user.last_name %></h4>
+      <div class="d-flex">
+        <h4> Hosted by <%= @property.user.first_name %> <%= @property.user.last_name %></h4>
+        <%= cl_image_tag @property.user.photo.key, class:"avatar" %>
+      </div>
       <p> Property Description </p>
         <%= @property.description %>
       <p> Property Amenities </p>
