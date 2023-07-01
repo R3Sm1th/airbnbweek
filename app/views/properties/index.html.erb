@@ -41,6 +41,7 @@
         <div class="card-body">
           <h5 class="card-title"> <strong><%= property.name %></strong></h5>
           <p class="card-text"><%= property.address %>, <%= property.postcode %></p>
+          <p class="card-text">Available:<%= property.next_available.begin %> to <%= property.next_available.last %></p>
           <%= link_to "Show", property_path(property.id)%>
         </div>
         <div class="card-footer">

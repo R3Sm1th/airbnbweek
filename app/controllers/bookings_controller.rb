@@ -1,6 +1,22 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i[show]
+
   def index
     @bookings = Booking.where(:user == current_user)
+  end
+
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Monurental - Booking Reference #{@booking.id}", # Excluding ".pdf" extension.
+        page_size: 'A4',
+        orientation: "Portrait",
+        lowquality: true,
+        zoom: 1,
+        dpi: 75
+      end
+    end
   end
 
   def create
@@ -17,6 +33,9 @@ class BookingsController < ApplicationController
   end
 
   private
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:start, :end, :comment)

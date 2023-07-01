@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[show edit update destroy]
+  # before_action :get_bookings, only: %i[next_available]
 
   # GET /properties
   def index
