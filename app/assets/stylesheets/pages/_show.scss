@@ -1,0 +1,32 @@
+.show-container {
+  background-color: white;
+  border: 1px solid rgba(255, 255, 255, 0.599);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.showimages {
+  display: flex;
+
+  .main {
+    background-color: #f2f2f2; /* Example background color */
+
+    .img {
+      max-inline-size: 100%;
+      padding-right: 15px;
+    }
+  }
+
+  .otherimages {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Divide the available space into two columns */
+    grid-template-rows: repeat(2, 1fr); /* Divide the available space into two rows */
+    gap: 10px; /* Add some gap between the images */
+
+    .img {
+      max-width: 100%;
+
+    }
+}
+}

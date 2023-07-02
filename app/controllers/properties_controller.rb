@@ -1,4 +1,5 @@
 class PropertiesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_property, only: %i[show edit update destroy]
   # before_action :get_bookings, only: %i[next_available]
 

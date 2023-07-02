@@ -2,7 +2,7 @@
   <h1>My Bookings</h1>
   <div class=container>
     <% @bookings.each do |booking| %>
-    <div class="card text-center">
+    <div class="card text-center my-2">
       <div class="card-header">
         <%= booking.property.address %>
       </div>
@@ -14,7 +14,7 @@
             <p class="card-text">Price: £<%= booking.total %></p>
             <div class="">
               <%= link_to "Listing Details", property_path(booking.property), class: "btn btn-primary"%>
-              <%= link_to "Confirmation", booking_pdf_path(booking), class: "btn btn-primary"%>
+              <%= link_to "Booking Confirmation", booking_pdf_path(booking), class: "btn btn-success"%>
             </div>
           </div>
         </div>

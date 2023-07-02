@@ -3,12 +3,44 @@
     <h1>Make memories with <strong> Monurental </strong> stays!</h1>
     <p>Explore the world in the best way imaginable.</p>
     <div>
-      <%=  link_to "Explore", properties_path(), class:"btn btn-flat"%>
+      <%=  link_to "Explore Stays", properties_path(), class:"btn btn-flat"%>
     </div>
   </div>
 </div>
+<%# Description %>
+<div class="home-container">
+  <div class ="content">
+    <p> Here at Monurental we specialise in the truely spectacular stays which make memories. </p>
+    <p> Choose something for every occassion or mood. </p>
+    <p> Vacations should be more than a rental, it should be <s>monumental</s> monurental</p>
+  </div>
+</div>
+<%# Top Rated %>
 <div class="container">
-  <p> Here at Monurental we specialise in the truely spectacular stays which make memories. </p>
-  <p> Choose something for every occassion or mood. </p>
-  <p> Vacations should be more than a rental, it should be <s>monumental</s> monurental</p>
+  <div class="card mb-3">
+  <%= cl_image_tag @featured.photos[0].key, class: "card-img-top", style: "position: relative; overflow: hidden; height: 300px; object-fit: cover;" %>
+  <div class="card-body">
+    <h5 class="card-title">Today's Top Rated</h5>
+    <p class="card-text"><%= @featured.address %></p>
+
+  </div>
+</div>
+
+<%# Recent Added %>
+<div>
+  <div class="card mb-3">
+  <%= cl_image_tag @recent.photos[0].key, class:"card-img-top", style: "position: relative; overflow: hidden; height: 300px; object-fit: cover;" %>
+  <div class="card-body">
+    <h5 class="card-title">Recently Added</h5>
+    <p class="card-text"><%= @recent.address %></p>
+  </div>
+</div>
+</div>
+<div class="home-container">
+  <div class ="content">
+    <p> See something you like? Why not create an account today... </p>
+    <div>
+      <%=  link_to "Create Account",  new_user_registration_path(), class:"btn btn-flat"%>
+    </div>
+  </div>
 </div>
