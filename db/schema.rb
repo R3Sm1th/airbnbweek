@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_125348) do
     t.string "address"
     t.string "postcode"
     t.integer "price"
-    t.integer "rating"
+    t.float "rating"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

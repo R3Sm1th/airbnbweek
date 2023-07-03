@@ -26,18 +26,47 @@ Property.destroy_all
 
 puts "creating properties"
 
-p1 = Property.new(name: "The Cottage", address: "32 Walabu Way, Sydney", postcode: "BN34HB", price: 125, rating: 4.5, user: mogul, sleeps: 3, description: "a wonderful property in a sweet little town", amenities: ["Wifi", "Wifi", "Wifi", "Wifi", "Wifi"] )
-file = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1685692549/samples/landscapes/architecture-signs.jpg")
-p1.photos.attach(io: file, filename: "property1_img.jpg", content_type: "image/jpg")
+p1 = Property.new(name: "BeachFront Loft", address: "Teignmouth, Devon, United Kingdom", postcode: "TN9 8EB", price: 130, rating: 4.97, user: mogul, sleeps: 2, description: "Stunning sunsets & spectacular view up River Teign", amenities: ["Bay view", "Courtyard view", "Public or shared beach access – Beachfront", "Kitchen", "Wifi", "Dedicated workspace", "'43' HDTV with Netflix", "Free washer", "Shared patio or balcony", "Indoor fireplace: wood-burning"] )
+file1 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688377096/Screenshot_2023-07-03_at_10.36.51_g8opbz.png")
+p1.photos.attach(io: file1, filename: "property1_img.jpg", content_type: "image/jpg")
+file2 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688377095/Screenshot_2023-07-03_at_10.36.58_jldexu.png")
+p1.photos.attach(io: file2, filename: "property1_img.jpg", content_type: "image/jpg")
+file3 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688377096/Screenshot_2023-07-03_at_10.37.18_xcbajh.png")
+p1.photos.attach(io: file3, filename: "property1_img.jpg", content_type: "image/jpg")
+file4 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688377095/Screenshot_2023-07-03_at_10.36.42_cx2pk0.png")
+p1.photos.attach(io: file4, filename: "property1_img.jpg", content_type: "image/jpg")
+file5 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688377535/Screenshot_2023-07-03_at_10.45.15_ytewnn.png")
+p1.photos.attach(io: file5, filename: "property1_img.jpg", content_type: "image/jpg")
 p1.save
 
 r1 = Review.new(content: "This is lovely", rating: 5, property: p1)
 r1.save
+r2 = Review.new(content: "Great weekend away with the familt", rating: 4, property: p1)
+r2.save
 
-p2 = Property.new(name: "The Lesser", address: "1, Mount View, Peacehaven", postcode: "BN34HB", price: 125, rating: 4.5, user: mogul)
-file = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1685692549/samples/landscapes/architecture-signs.jpg")
-p2.photos.attach(io: file, filename: "property1_img.jpg", content_type: "image/jpg")
+b1 = Booking.new(start: Date.today, end: Date.new(2023, 8, 1), comment:"Will be arriving very late from Gatwick, hopefully okay?", total: 1260, user: login, property: p1)
+b1.save
+
+p2 = Property.new(name: "16th Century thatched cottage", address: "Ropley, England, United Kingdom, United Kingdom", postcode: "RP9 8BZ", price: 177, rating: 4.97, user: mogul, sleeps: 4, description: "This chocolate box 16th Century Grade II listed cottage, the oldest house in the village,  is chocca-block full of history.  ", amenities: ["Garden view", "Kitchen", "Wifi", "Free parking on premises", "'24' TV with Amazon Prime Video, Apple TV, Fire TV, Netflix, cablesatellite TV", "Free washing machine", "Bath", "Private patio or balcony", "Private back garden – Fully fenced", "Hair dryer"] )
+file1 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688380275/Screenshot_2023-07-03_at_11.29.50_hywllc.png")
+p2.photos.attach(io: file1, filename: "property1_img.jpg", content_type: "image/jpg")
+file2 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688380276/Screenshot_2023-07-03_at_11.30.04_rxhbd3.png")
+p2.photos.attach(io: file2, filename: "property1_img.jpg", content_type: "image/jpg")
+file3 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688380277/Screenshot_2023-07-03_at_11.30.21_riiqap.png")
+p2.photos.attach(io: file3, filename: "property1_img.jpg", content_type: "image/jpg")
+file4 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688380272/Screenshot_2023-07-03_at_11.30.11_f1dlsl.png")
+p2.photos.attach(io: file4, filename: "property1_img.jpg", content_type: "image/jpg")
+file5 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688380275/Screenshot_2023-07-03_at_11.30.31_o17ovg.png")
+p2.photos.attach(io: file5, filename: "property1_img.jpg", content_type: "image/jpg")
 p2.save
+
+r1 = Review.new(content: "This is lovely", rating: 5, property: p2)
+r1.save
+r2 = Review.new(content: "Great weekend away with the familt", rating: 4, property: p2)
+r2.save
+
+b2 = Booking.new(start: Date.new(2023, 8, 1), end: Date.new(2023, 8, 20), comment:"Will be arriving very late from Gatwick, hopefully okay?", total: 1260, user: login, property: p2)
+b2.save
 
 p3 = Property.new(name: "The Larger", address: "4 Some Other Address, Brighton", postcode: "BN34HB", price: 150, rating: 4.75, user: mogul)
 file = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1685692549/samples/landscapes/architecture-signs.jpg")

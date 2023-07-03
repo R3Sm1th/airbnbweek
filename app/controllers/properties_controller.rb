@@ -5,9 +5,11 @@ class PropertiesController < ApplicationController
 
   # GET /properties
   def index
-    @properties = Property.all
-    # @my_properties = Property.where(user: current_user)
-    # @property_application = PropertyApplication.find(params[:property_application_id])
+    if params[:query].present?
+      @properties = Property.where("address ILIKE ? OR name ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    else
+      @properties = Property.all
+    end
   end
 
   def mylistings

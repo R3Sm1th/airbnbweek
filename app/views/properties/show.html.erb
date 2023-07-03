@@ -8,16 +8,16 @@
     </div>
     <div class="otherimages col-6">
       <div class="other">
-        <%= cl_image_tag @property.photos[0].key, class:"img" %>
+        <%= cl_image_tag @property.photos[1].key, class:"img" %>
       </div>
       <div class="other">
-        <%= cl_image_tag @property.photos[0].key, class:"img" %>
+        <%= cl_image_tag @property.photos[2].key, class:"img" %>
       </div>
       <div class="other">
-        <%= cl_image_tag @property.photos[0].key, class:"img" %>
+        <%= cl_image_tag @property.photos[3].key, class:"img" %>
       </div>
       <div class="other">
-        <%= cl_image_tag @property.photos[0].key, class:"img" %>
+        <%= cl_image_tag @property.photos[4].key, class:"img" %>
       </div>
     </div>
   </div>
@@ -27,9 +27,9 @@
         <h4> Hosted by <%= @property.user.first_name %> <%= @property.user.last_name %></h4>
         <%= cl_image_tag @property.user.photo.key, class:"avatar" %>
       </div>
-      <p> Property Description </p>
-        <%= @property.description %>
-      <p> Property Amenities </p>
+      <h5> Property Description </h5>
+        <p><%= @property.description %></p>
+      <h5> Property Amenities </h5>
       <div>
         <ul>
           <% @property.amenities.each do |a| %>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="col-6 show-container">
-      <p> Property Booking </p>
+      <h5> Property Booking </h5>
       <div class="container">
         <p>£<%= @property.price %> per night</p>
         <%= simple_form_for [@property, @booking] do |f| %>

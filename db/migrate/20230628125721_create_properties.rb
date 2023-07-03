@@ -5,7 +5,7 @@ class CreateProperties < ActiveRecord::Migration[7.0]
       t.string :address
       t.string :postcode
       t.integer :price
-      t.integer :rating
+      t.float :rating
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

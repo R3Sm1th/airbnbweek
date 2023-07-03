@@ -9,8 +9,8 @@ class Property < ApplicationRecord
     @property = self
     @bookings = Booking.where(property: @property)
     next_booking = @bookings.where("start > ?", Date.today).order(:start).first
-    return Date.tomorrow.strftime("%b %e")..Date.today.end_of_year.strftime("%b %e") unless next_booking
+    return Date.tomorrow.strftime("%b %e")..next_booking.start.strftime("%b %e") if next_booking.present?
 
-    Date.tomorrow.strftime("%b %e")..next_booking.strftime("%b %e")
+    Date.tomorrow.strftime("%b %e")..Date.today.end_of_year.strftime("%b %e")
   end
 end
