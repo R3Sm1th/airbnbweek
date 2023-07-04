@@ -68,7 +68,15 @@ r2.save
 b2 = Booking.new(start: Date.new(2023, 8, 1), end: Date.new(2023, 8, 20), comment:"Will be arriving very late from Gatwick, hopefully okay?", total: 1260, user: login, property: p2)
 b2.save
 
-p3 = Property.new(name: "The Larger", address: "4 Some Other Address, Brighton", postcode: "BN34HB", price: 150, rating: 4.75, user: mogul)
-file = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1685692549/samples/landscapes/architecture-signs.jpg")
-p3.photos.attach(io: file, filename: "property1_img.jpg", content_type: "image/jpg")
+p3 = Property.new(name: "The Treehouse at Barrow Hill Barns", address: "Ramsdean, England, United Kingdom", postcode: "RA7 PL4", price: 187, rating: 0, user: mogul, sleeps: 2, description: "Sitting within a historic woodland, this secluded retreat has all the creature comforts of home whilst being immersed in nature on Barrow Hill Farm. ", amenities: ["Kitchen", "Wifi", "Free parking on premises", "TV", "Bath", "Private patio or balcony", "Private back garden – Not fully fenced", "Refrigerator"] )
+file1 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688477755/Screenshot_2023-07-04_at_14.34.14_hm43vw.png")
+p3.photos.attach(io: file1, filename: "property1_img.jpg", content_type: "image/jpg")
+file2 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688477757/Screenshot_2023-07-04_at_14.34.35_zjjhmu.png")
+p3.photos.attach(io: file2, filename: "property1_img.jpg", content_type: "image/jpg")
+file3 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688477753/Screenshot_2023-07-04_at_14.34.44_yxl6ji.png")
+p3.photos.attach(io: file3, filename: "property1_img.jpg", content_type: "image/jpg")
+file4 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688477753/Screenshot_2023-07-04_at_14.34.29_om9dwm.png")
+p3.photos.attach(io: file4, filename: "property1_img.jpg", content_type: "image/jpg")
+file5 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688477752/Screenshot_2023-07-04_at_14.34.22_ukctkt.png")
+p3.photos.attach(io: file5, filename: "property1_img.jpg", content_type: "image/jpg")
 p3.save
