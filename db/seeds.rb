@@ -81,5 +81,5 @@ file5 = URI.open("https://res.cloudinary.com/dcu7y5wnn/image/upload/v1688477752/
 p3.photos.attach(io: file5, filename: "property1_img.jpg", content_type: "image/jpg")
 p3.save
 
-r1 = Review.new(content: "This is lovely", rating: 3, property: p2)
+r1 = Review.new(content: "This is lovely", rating: 3, property: p3)
 r1.save
