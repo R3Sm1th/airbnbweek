@@ -31,7 +31,7 @@
           <%= link_to "Show", property_path(property.id)%>
         </div>
         <div class="card-footer">
-          <small class="text-muted"><%= property.rating.present? ? "Rating: #{property.rating}" : "No Ratings Yet" %></small>
+          <small class="text-muted"><%= property.rating == 0 ? "Rating: #{property.rating}" : "No Ratings Yet" %></small>
         </div>
       </div>
       <% end %>
