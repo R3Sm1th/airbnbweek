@@ -1,8 +1,8 @@
-<div class="container col-12 col-lg-8">
-  <h4>Propety Listings</h4>
-  <p>See our <%= @properties.count %> (monu)rentals: </p>
+<div class="container col-12 col-lg-8 title">
+  <h1 class="mt-3">Property Listings</h1>
+  <p><em>See our <%= @properties.count %> (monu)rentals: </em></p>
   <div>
-    <div class="container">
+    <div class="container" style="background-color: white">
     <div class="row justify-content-center">
       <div class="col-sm-8 my-3">
         <%= form_with url: properties_path, method: :get, class: "d-flex" do %>
