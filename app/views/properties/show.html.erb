@@ -26,63 +26,69 @@
       </div>
     </div>
   </div>
-  <div class="d-flex">
-    <div class="col-5.5 show-container">
-      <div class="d-flex">
-        <h4> Hosted by <%= @property.user.first_name %> <%= @property.user.last_name %></h4>
-        <%= cl_image_tag @property.user.photo.key, class:"avatar" %>
-      </div>
-      <h5> Property Description </h5>
-        <p><%= @property.description %></p>
-      <h5> Property Amenities </h5>
-      <div>
-        <ul>
-          <% @property.amenities.each do |a| %>
-          <li><%= a %></li>
-          <% end %>
-        </ul>
+  <div class="details">
+    <div class="col-12 col-lg-6 spacing">
+      <div class="show-container info">
+        <div class="owner-detail">
+          <h4> Hosted by <%= @property.user.first_name %> <%= @property.user.last_name %></h4>
+          <%= cl_image_tag @property.user.photo.key, class:"avatar" %>
+        </div>
+        <h5> Property Description </h5>
+          <p><%= @property.description %></p>
+        <h5> Property Amenities </h5>
+        <div>
+          <ul>
+            <% @property.amenities.each do |a| %>
+            <li><%= a %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="col-6 show-container" style="margin-left: 10px">
-      <h5> Property Booking </h5>
-      <div class="container">
-        <p>£<%= @property.price %> per night</p>
-        <%= simple_form_for [@property, @booking] do |f| %>
-          <%= f.input :start, class: 'start-date', id: "start" %>
-          <%= f.input :end, class: 'end-date', id: "end" %>
-          <%= f.input :comment %>
-          <%= f.button :submit, class: 'btn btn-primary' %>
-        <% end %>
-        <p> You won't be charged yet </p>
-        <div class="price">
-          <p>£<span id="price"><%= @property.price %></span> x <span id="date-diff">0</span> nights</p>
-          <p> = £<span id="total">0</span>
+    <div class="col-12 col-lg-6">
+      <div class="show-container bookings">
+        <h5> Property Booking </h5>
+        <div class="container">
+          <p>£<%= @property.price %> per night</p>
+          <%= simple_form_for [@property, @booking] do |f| %>
+            <%= f.input :start, class: 'start-date', id: "start" %>
+            <%= f.input :end, class: 'end-date', id: "end" %>
+            <%= f.input :comment %>
+            <%= f.button :submit, class: 'btn btn-primary', style:"width:100%" %>
+          <% end %>
+          <p> You won't be charged yet </p>
+          <div class="price">
+            <p>£<span id="price"><%= @property.price %></span> x <span id="date-diff">0</span> nights</p>
+            <p> = £<span id="total">0</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="col-12 mt-5">
-    <% avg = 0 %><% @property.reviews.each do |r| avg += r.rating end %>
-    <h4> <i class="fas fa-star"></i> Reviews - <%= @property.reviews.count %> - Average Score <%= (avg / @property.reviews.count).to_f %> </h4>
-    <div class="list-group show-container">
-        <% @property.reviews.each do |review| %>
-          <li class="list-group-item">
-            <p><%= name = review.name.nil? ? "Anonomys User" : review.name %> </p>
-            <p><%= review.created_at.strftime("%d/%m/%Y") %> </p>
-            <small>
-              <% count = 0 %>
-              <% 5.times do %>
-                <% if review.rating > count %>
-                  <i class="fas fa-star"></i>
-                <% else %>
-                  <i class="far fa-star"></i>
+    <div class="reviews-input">
+      <% avg = 0 %><% @property.reviews.each do |r| avg += r.rating end %>
+      <h4> <i class="fas fa-star"></i> Reviews - <%= @property.reviews.count %> - Average Score <%= (avg / @property.reviews.count).to_f %> </h4>
+      <div class="list-group show-container">
+          <% @property.reviews.each do |review| %>
+            <li class="list-group-item">
+              <p><%= name = review.name.nil? ? "Anonomys User" : review.name %> </p>
+              <p><%= review.created_at.strftime("%d/%m/%Y") %> </p>
+              <small>
+                <% count = 0 %>
+                <% 5.times do %>
+                  <% if review.rating > count %>
+                    <i class="fas fa-star"></i>
+                  <% else %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                  <% count += 1 %>
                 <% end %>
-                <% count += 1 %>
-              <% end %>
-            </small>
-            <p><%= review.content %></p>
-          </li>
-        <% end %>
+              </small>
+              <p><%= review.content %></p>
+            </li>
+          <% end %>
+      </div>
     </div>
     <div class="show-container">
       <%= simple_form_for [@property, @review] do |f| %>

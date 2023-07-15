@@ -1,3 +1,14 @@
+.asset-banner {
+  background-image: url("banner.png");
+  text-align: center;
+  padding: 20px;
+  background-size: cover;
+
+  h1 {
+    color: white;
+  }
+}
+
 .title {
   h1 {
     font-size: 32px;
@@ -17,7 +28,13 @@
     margin-bottom: 10px;
   }
 }
+.bookings {
+  margin-left: 2.55%;
+}
 
+.info {
+  margin-right: 2.5%;
+}
 .showimages {
   display: flex;
   height: 300px;
@@ -26,8 +43,8 @@
     background-color: #f2f2f2; /* Example background color */
 
     .img {
-      max-height: 100%;
-      max-width: calc(100% - 15px);
+      height: 100%;
+      width: calc(100% - 15px);
       padding-right: 15px;
       object-fit: cover;
     }
@@ -43,12 +60,26 @@
       max-height: calc(100% - 10px);
       max-width: calc(100% - 10px);
       object-fit: cover;
+      vertical-align: baseline;
     }
 }
+}
+.details {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.owner-detail {
+  display: flex !important;
+  justify-content: space-between;
 }
 
 .showheader {
   margin-top: 15px;
+}
+
+.reviews-input {
+  margin-bottom: 5%;
 }
 
 .price {
@@ -59,5 +90,19 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   p {
     padding: 3px;
+  }
+}
+
+@media (max-width: 1000px) {
+
+  .info {
+    margin-right: 0;
+    margin-bottom: 5%;
+  }
+  .bookings {
+    margin-left: 0;
+  }
+  .spacing {
+    margin-bottom: 5%;
   }
 }
