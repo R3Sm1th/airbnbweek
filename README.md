@@ -1,1 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+This is an extract of a project sprint designed during our bootcamp. We had 4 days to wireframe, design and deploy an airbnb style market place. 
